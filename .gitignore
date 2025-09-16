@@ -1,10 +1,5 @@
-composer.phar
 app/vendor/
-config/
-scripts/
-database/
 app/.env
-
 
 # macOS
 .DS_Store
