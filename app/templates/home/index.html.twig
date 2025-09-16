@@ -1,0 +1,17 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block content %}
+  <h1>{{ title }}</h1>
+  {% if users is not empty %}
+    <ul>
+      {% for user in users %}
+        <li>
+          <strong>{{ user.name|e }}</strong>
+          <small>&lt;{{ user.email|e }}&gt;</small>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No users yet.</p>
+  {% endif %}
+{% endblock %}
