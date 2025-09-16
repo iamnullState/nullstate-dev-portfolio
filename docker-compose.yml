@@ -1,0 +1,50 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: NullPortfolio
+    ports:
+      - "8080:80"          # http://localhost:8080
+    volumes:
+      - ./app:/var/www/html
+      - ./config/php.ini:/usr/local/etc/php/conf.d/99-overrides.ini:ro
+      - ./config/vhost.conf:/etc/apache2/sites-available/000-default.conf:ro
+    environment:
+      APACHE_DOCUMENT_ROOT: /var/www/html/public
+    depends_on: [db]
+    restart: unless-stopped
+
+  db:
+    image: mariadb:11
+    container_name: NullPortfolio_db
+    environment:
+      - MARIADB_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MARIADB_DATABASE=${DB_DATABASE}
+      - MARIADB_USER=${DB_USER}
+      - MARIADB_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "3306:3306"        # For Sequel Ace; you can remove this if you’ll use Tailscale/SSH tunnel
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: unless-stopped
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: NullPortfolio_phpmyadmin
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=${DB_USER}
+      - PMA_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "8081:80"          # http://localhost:8081
+    depends_on: [db]
+    restart: unless-stopped
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"   # http://localhost:8025
+
+volumes:
+  db_data:

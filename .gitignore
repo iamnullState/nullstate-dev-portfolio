@@ -1,7 +1,5 @@
 composer.phar
 app/vendor/
-docker-compose.yml
-Dockerfile
 config/
 scripts/
 database/
