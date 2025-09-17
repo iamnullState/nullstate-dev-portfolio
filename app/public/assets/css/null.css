@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
+@media (min-width: 992px) {
+    .offcanvas-lg-start {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100%;
+        z-index: 1030;
+        display: block !important;
+        visibility: visible !important;
+        transform: none !important;
+        border-right: 1px solid #dee2e6;
+    }
+
+    .ms-lg-250 {
+        margin-left: 250px;
+    }
+  }
+
+.nullNav {
+    background-color: #FFFFFF;
+    background-image: url(/assets/images/null_bg.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 250px;
+    color: #000000;
+    text-shadow:
+          -1px -1px 0 #FFFFFF,
+           1px -1px 0 #FFFFFF,
+          -1px  1px 0 #FFFFFF,
+           1px  1px 0 #FFFFFF;
+}
+
+.jersey-10-regular {
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  

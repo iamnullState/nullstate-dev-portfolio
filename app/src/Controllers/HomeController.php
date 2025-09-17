@@ -10,11 +10,17 @@ final class HomeController
 {
     public function index(): void
     {
-        $users = User::orderBy('id', 'desc')->limit(10)->get();
 
         View::render('home/index.html.twig', [
-            'title' => 'Welcome',
-            'users' => $users,
+            'title' => 'Hello, World!',
+            'app_url' => getenv('APP_URL') ?: 'http://localhost',
+            'og_title' => 'Welcome to meh dev portfolio',
+            'meta_description' => 'nullStat3 portfolio blog thingy. I make stuff, sometimes I write about it. I just want to be 1337 like Zero Cool.',
+            'og_description' => 'nullStat3 portfolio blog thingy. I make stuff, sometimes I write about it. I just want to be 1337 like Zero Cool.',
+            'meta_keywords' => 'portfolio, projects, skills, developer, designer',
+            'meta_author' => 'nullStat3',
+            'og_image' => '/assets/images/og-index.png',
+            'appName' => getenv('APP_NAME') ?: 'nullStat3',
         ]);
     }
 }
