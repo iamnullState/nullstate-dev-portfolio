@@ -1,6 +1,7 @@
 app/vendor/
 app/.env
-
+Dockerfile
+docker_compose.yml
 # macOS
 .DS_Store
 
