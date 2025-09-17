@@ -4,16 +4,15 @@ declare(strict_types=1);
 namespace Nullstate\Controllers;
 
 use Nullstate\Core\View;
-use Nullstate\Models\User;
 
-final class HomeController
+final class AboutController
 {
     public function index(): void
     {
 
-        View::render('home/index.html.twig', [
+        View::render('about/index.html.twig', [
             'date' => date("Y.m.d ⇾ l"),
-            'title' => 'Hello, World!',
+            'title' => '/whois nullStat3',
             'app_url' => getenv('APP_URL') ?: 'http://localhost',
             'og_title' => 'Welcome to meh dev portfolio',
             'meta_description' => 'nullStat3 portfolio blog thingy. I make stuff, sometimes I write about it. I just want to be 1337 like Zero Cool.',

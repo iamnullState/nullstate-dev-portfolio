@@ -19,6 +19,15 @@
     }
   }
 
+body {
+    background-color: #FFFFFF;
+    background-image: url(/assets/images/content_bg.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-size: 350px;
+}
+
 .nullNav {
     background-color: #FFFFFF;
     background-image: url(/assets/images/null_bg.png);
