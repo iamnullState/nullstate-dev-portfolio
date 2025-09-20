@@ -1,0 +1,50 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block content %}
+<div class="row"> 
+          <div class="col-lg-4 p-1 m-1"> 
+            <h5>[ <span class="text-secondary">n3Dev</span> ] ⇢ <span class="text-secondary">authenticate</span></h5>
+            <p> 
+              authenticate user tl;dr stuff
+            </p>
+          </div>
+          <div class="col-lg-4 p-1 m-1"> 
+            <h5>[ <span class="text-secondary">n3Dev</span> ] ⇢ <span class="text-secondary">user credientials</span></h5>
+
+            <form method="post" action="/login" novalidate>
+              <input type="hidden" name="_token" value="{{ csrf_token }}">
+                <ul class="list-group"> 
+
+                <li class="list-group-item border-0"> 
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1 text-secondary"><i class="bi bi-envelope-heart-fill"></i> Your Email Address</h5>
+                    </div>
+                    <input
+                      id="email" name="email" type="email"
+                      class="form-control rounded-0 {% if errors.email %}is-invalid{% endif %}"
+                      value="{{ old.email|default('') }}"
+                      autocomplete="email" required
+                    >
+
+                  </li>
+
+                  <li class="list-group-item border-0"> 
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1 text-secondary"><i class="bi bi-key-fill"></i> Choose a Password</h5>
+                    </div>
+                    <input
+                      id="password" name="password" type="password"
+                      class="form-control rounded-0 {% if errors.password %}is-invalid{% endif %}"
+                      minlength="10" autocomplete="new-password" required
+                    >
+                  
+                  </li>
+
+                  <li class="list-group-item border-0"> 
+                    <input name="submit" type="submit" class="btn btn-secondary rounded-0 w-100 text-white border border-2 border-dark" value="Authenticate">
+                  </li>
+                </ul>
+          </form>
+          </div>
+        </div>  
+{% endblock %}

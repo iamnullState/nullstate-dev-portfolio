@@ -39,6 +39,12 @@ $router->get('/register', [\Nullstate\Controllers\RegisterController::class, 'in
 // register - store
 $router->post('/register', [\Nullstate\Controllers\RegisterController::class, 'store']);
 
+// ----- Authentication ----
+// login - index
+$router->get('/login', [\Nullstate\Controllers\LoginController::class, 'index']);
+// login - store
+$router->post('/login', [\Nullstate\Controllers\LoginController::class, 'store']);
+
 // ---- IGNORE ME ----
 // debug - for testing CSRF
 $router->post('/debug-session', [\Nullstate\Controllers\DebugController::class, 'store']);
