@@ -13,4 +13,13 @@ final class DebugController
         print_r($_SESSION);
         echo '</pre>';
     }
+
+    public function flash(): void
+    {
+        $type = $_POST['type'] ?? 'info';
+        $message = $_POST['message'] ?? 'This is a default message';
+        \Nullstate\Core\Flash::set($type, $message);
+        header('Location: /');
+        exit;
+    }
 }

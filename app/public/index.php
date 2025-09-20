@@ -14,8 +14,12 @@ $router = new Router();
 $router->get('/', [\Nullstate\Controllers\HomeController::class, 'index']);
 // about - whois nullstat3
 $router->get('/whois', [\Nullstate\Controllers\AboutController::class, 'index']);
-// explore
+// ---- explore ----
+// explore - index
 $router->get('/explore', [\Nullstate\Controllers\ExploreController::class, 'index']);
+//explore - blog
+$router->get('/explore-blog', [\Nullstate\Controllers\ExploreController::class, 'blog']);
+// -----
 // projects
 $router->get('/projects', [\Nullstate\Controllers\ProjectsController::class, 'index']);
 // ibkc - itty bitty kitty committee
@@ -29,8 +33,14 @@ $router->get('/terms', [\Nullstate\Controllers\TermsController::class, 'index'])
 // updates
 $router->get('/updates', [\Nullstate\Controllers\UpdatesController::class, 'index']);
 
+// ---- User Registration ----
+// register - index
+$router->get('/register', [\Nullstate\Controllers\RegisterController::class, 'index']);
+
 // ---- IGNORE ME ----
 // debug - for testing CSRF
 $router->post('/debug-session', [\Nullstate\Controllers\DebugController::class, 'store']);
+// flash testing
+$router->post('/debug-flash', [\Nullstate\Controllers\DebugController::class, 'flash']);
 
 $router->dispatch();

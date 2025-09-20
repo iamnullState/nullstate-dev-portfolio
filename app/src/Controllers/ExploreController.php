@@ -23,4 +23,21 @@ final class ExploreController
             'appName' => getenv('APP_NAME') ?: 'nullStat3',
         ]);
     }
+
+    public function blog(): void
+    {
+
+        View::render('explore/blog.html.twig', [
+            'date' => date("Y.m.d ⇾ l"),
+            'title' => 'blog',
+            'app_url' => getenv('APP_URL') ?: 'http://localhost',
+            'og_title' => 'Welcome to meh dev portfolio',
+            'meta_description' => 'nullStat3 portfolio blog thingy. I make stuff, sometimes I write about it. I just want to be 1337 like Zero Cool.',
+            'og_description' => 'nullStat3 portfolio blog thingy. I make stuff, sometimes I write about it. I just want to be 1337 like Zero Cool.',
+            'meta_keywords' => 'portfolio, projects, skills, developer, designer',
+            'meta_author' => 'nullStat3',
+            'og_image' => '/assets/images/og-index.png',
+            'appName' => getenv('APP_NAME') ?: 'nullStat3',
+        ]);
+    }
 }

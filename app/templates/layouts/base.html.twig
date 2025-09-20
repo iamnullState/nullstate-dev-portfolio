@@ -67,6 +67,17 @@
                     </div> 
       </div>
       <div class="col-lg-8">
+       {% if flash_alert %}
+          {% set css = {
+            'success':'alert-success',
+            'error':'alert-danger',
+            'warning':'alert-warning',
+            'info':'alert-info'
+          } %}
+          <div class="alert {{ css[flash_alert.type]|default('alert-info') }} my-3 border border-2 border-dark">
+            {{ flash_alert.message }}
+          </div>
+        {% endif %}
         {% block content %}{% endblock %}
       </div>
     </div>

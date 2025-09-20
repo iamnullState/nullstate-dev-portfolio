@@ -26,6 +26,7 @@ final class App
         Database::boot(); // Eloquent Capsule
         View::boot();     // Twig
         $this->bootCsrf();  // CSRF + Twig globals
+        
     }
 
     private function bootSession(): void
@@ -51,9 +52,10 @@ final class App
         Csrf::ensure();
         Csrf::verifyPost();
 
-        // Expose globals to Twig via the public getter
         View::twig()->addGlobal('csrf_token', Csrf::token());
-        View::twig()->addGlobal('flash_success', $_SESSION['flash_success'] ?? null);
-        unset($_SESSION['flash_success']);
+        $flash = \Nullstate\Core\Flash::get();
+        if ($flash) {
+            View::twig()->addGlobal('flash_alert', $flash);
+        }
     }
 }
