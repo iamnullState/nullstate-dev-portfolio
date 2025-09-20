@@ -29,5 +29,8 @@ $router->get('/terms', [\Nullstate\Controllers\TermsController::class, 'index'])
 // updates
 $router->get('/updates', [\Nullstate\Controllers\UpdatesController::class, 'index']);
 
+// ---- IGNORE ME ----
+// debug - for testing CSRF
+$router->post('/debug-session', [\Nullstate\Controllers\DebugController::class, 'store']);
 
 $router->dispatch();
