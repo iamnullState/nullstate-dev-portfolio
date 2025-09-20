@@ -36,6 +36,8 @@ $router->get('/updates', [\Nullstate\Controllers\UpdatesController::class, 'inde
 // ---- User Registration ----
 // register - index
 $router->get('/register', [\Nullstate\Controllers\RegisterController::class, 'index']);
+// register - store
+$router->post('/register', [\Nullstate\Controllers\RegisterController::class, 'store']);
 
 // ---- IGNORE ME ----
 // debug - for testing CSRF

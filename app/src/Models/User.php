@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 final class User extends Model
 {
     protected $table = 'users';
-    protected $fillable = ['name', 'email']; // mass-assignable
-    public $timestamps = true;               // expects created_at/updated_at
+    protected $fillable = ['email', 'username', 'password_hash', 'is_admin'];
+    protected $hidden = ['password_hash'];
+    public $timestamps = true;
 }
